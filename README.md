@@ -3,7 +3,7 @@ This repository contains tools to identify and map suitable areas for marine aqu
 
 ## Table of Contents
 - [Overview](#overview)
-- [Repository Structure](#repository structure)
+- [Repository Structure](#repository-structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
