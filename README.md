@@ -3,7 +3,7 @@ This repository contains tools to identify and map suitable areas for marine aqu
 
 ## Table of Contents
 - [Overview](#overview)
-- [Repository Structure](#repositorystructure)
+- [Repository Structure](#repository structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
@@ -83,7 +83,7 @@ Ensure file paths in the scripts match your local structure.
 ## Contributors
 Melannie Moreno Rolón
 
-## Ackowledgements
+## Acknowledgements
 This project was completed as part of the Environmental Data Science curriculum at UC Santa Barbara. SST, depth, and EEZ datasets were provided through course materials. Thanks to instructors and TAs for guidance on spatial analysis in R.
 
 ## License
