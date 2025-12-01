@@ -27,18 +27,32 @@ This workflow supports reproducible spatial analysis and species-specific suitab
 ## Repository Structure 
 ```
 aquaculture-suitability-model
-└─── README.md
-└─── qmd/Rmd/Proj files
-└─── aquaculture_analysis.qmd # Name your file a title that is representative of your analysis!
-|   .gitignore
-    └───data
-        └─── wc_regions_clean.shp
-        └─── depth.tif
-        └─── average_annual_sst_2008.tif
-        └─── average_annual_sst_2009.tif
-        └─── average_annual_sst_2010.tif
-        └─── average_annual_sst_2011.tif
-        └─── average_annual_sst_2012.tif
+│   .gitignore
+│   .Rhistory
+│   aquaculture-suitability-model.Rproj
+│   aquaculture-suitability-workflow.pdf
+│   aquaculture-suitability-workflow.qmd
+│   LICENSE
+│   README.md
+│
+├───data
+│       average_annual_sst_2008.tif
+│       average_annual_sst_2009.tif
+│       average_annual_sst_2010.tif
+│       average_annual_sst_2011.tif
+│       average_annual_sst_2012.tif
+│       depth.tif
+│       wc_regions_clean.dbf
+│       wc_regions_clean.prj
+│       wc_regions_clean.shp
+│       wc_regions_clean.shx
+│
+├───figures
+│       oyster_map.pdf
+│       scallop_map.pdf
+│
+└───R
+        suitability_function.R
 ```
 
 ## Installation
@@ -50,33 +64,49 @@ cd aquaculture-suitability-model
 
 In R:
 ```
-install.packages(c("tidyverse", "sf", "terra", "tmap"))
+install.packages(c("tidyverse", "sf", "terra", "tmap", "kableExtra", "here", "dplyr", "testthat"))
 ```
 
 ## Usage
 To run the project, source the main script and call the suitability function:
 ```
+# Example:
 source("R/suitability_function.R")
 
-result_map <- suitability_map(
-  min_sst = 10,
-  max_sst = 18,
-  min_depth = -50,
-  max_depth = -5,
-  species = "Pacific Oyster"
+result <- suitability_map(
+  tmin = 11,
+  tmax = 30,
+  dmin = -70,
+  dmax = 0,
+  species_name = "Oyster"
 )
+
+# Outputs
+result$map     # tmap object of suitable areas
+result$table   # formatted suitability table
 ```
 This returns a mapped object showing suitable EEZ areas for the specified species.
 
 ## Data Access
 Environmental datasets (SST and depth) and EEZ shapefiles must be downloaded separately or placed in the data/ directory.
-Links to data sources (update with actual links):
 
-SST:
+**NOAA Sea Surface Temperature (SST)**
 
-Depth (Bathymetry):
+National Oceanic and Atmospheric Administration (NOAA). 2024. 5km Daily Global Satellite Sea Surface Temperature Anomaly v3.1. Coral Reef Watch Program. Average annual SST rasters for 2008–2012 were used in this analysis.
+Data files: `average_annual_sst_2008.tif`, `average_annual_sst_2009.tif`, `average_annual_sst_2010.tif`, `average_annual_sst_2011.tif`, `average_annual_sst_2012.tif`.
+Available at: https://coralreefwatch.noaa.gov/product/5km/
 
-U.S. West Coast EEZ boundaries:
+**GEBCO Bathymetry**
+
+General Bathymetric Chart of the Oceans (GEBCO). 2023. GEBCO Compilation Group: GEBCO 2023 Grid. British Oceanographic Data Centre.
+Data file: `depth.tif`.
+Available at: https://www.gebco.net/
+
+**Exclusive Economic Zones (EEZ)**
+
+Flanders Marine Institute (VLIZ). 2023. Maritime Boundaries Geodatabase: Exclusive Economic Zones (EEZ), version 12. MarineRegions.org.
+Data file: `wc_regions_clean.shp`.
+Available at: https://www.marineregions.org/
 
 Ensure file paths in the scripts match your local structure.
 
