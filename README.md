@@ -73,7 +73,7 @@ To run the project, source the main script and call the suitability function:
 # Example:
 source("R/suitability_function.R")
 
-result <- suitability_map(
+result <- map_suitability(
   tmin = 11,
   tmax = 30,
   dmin = -70,
