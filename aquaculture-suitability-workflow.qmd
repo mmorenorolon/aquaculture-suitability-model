@@ -30,6 +30,12 @@ library(tidyverse)
 library(dplyr)
 ```
 
+![](readme-screenshots/sc-1.png)
+![](readme-screenshots/sc-2.png)
+![](readme-screenshots/sc-3.png)
+![](readme-screenshots/sc-4.png)
+![](readme-screenshots/sc-5.png)
+
 # Introduction
 
 As the global population continues to rise, so does the pressure on wild fisheries to meet growing seafood demand. Marine aquaculture offers a promising solution, providing a sustainable alternative that can relieve pressure on wild stocks while supporting economic development. According to Gentry et al. (2017), the availability of suitable ocean space is unlikely to limit the expansion of marine aquaculture, indicating that many regions have the physical capacity to support future growth. This presents an important opportunity for countries such as the United States to develop aquaculture systems that meet both economic and environmental objectives.
