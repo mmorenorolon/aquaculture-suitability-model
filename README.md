@@ -85,7 +85,7 @@ result <- map_suitability(
 result$map     # tmap object of suitable areas
 result$table   # formatted suitability table
 ```
-This returns a mapped object showing suitable EEZ areas for the specified species.
+This returns a mapped object showing suitable EEZ areas for the specified species with its corresponding summary table.
 
 ## Data Access
 Environmental datasets (SST and depth) and EEZ shapefiles must be downloaded separately or placed in the data/ directory.
